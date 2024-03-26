@@ -2,8 +2,7 @@ import { ListGroup, Button } from "react-bootstrap";
 import { borrarTareaAPI, listarTareasAPI } from "./helpers/queries.js";
 import Swal from "sweetalert2";
 
-
-const ItemTarea = ({ tareas, setTareas}) => {
+const ItemTarea = ({ tareas, setTareas }) => {
   const borrarTarea = async (id) => {
     Swal.fire({
       title: "¿Estas seguro de eliminar la Tarea?",
@@ -39,11 +38,16 @@ const ItemTarea = ({ tareas, setTareas}) => {
   return (
     <>
       {tareas.map((tarea) => (
-        <ListGroup.Item key={tarea._id} className="my-2 rounded-2 letras-tareas d-flex justify-content-between">
+        <ListGroup.Item
+          key={tarea._id}
+          className="my-2 rounded-2 letras-tareas d-flex justify-content-between"
+        >
           {tarea.nombreTarea}
-          <Button 
-            onClick={()=>borrarTarea(tarea._id)}
-           variant="danger" className="mx-2 letras">
+          <Button
+            onClick={() => borrarTarea(tarea._id)}
+            variant="danger"
+            className="mx-2 letras"
+          >
             Borrar
           </Button>
         </ListGroup.Item>
